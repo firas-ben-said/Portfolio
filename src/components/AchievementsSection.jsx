@@ -32,17 +32,17 @@ const Achievements = [
 
 const AchievementsSection = () => {
   return (
-    <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-      <div className="border-[#33353F] border rounded-md py-8 px-16 flex flex-row items-center justify-between">
-        {Achievements.map((achievment, index) => (
+    <div className="py-8 px-4 sm:py-16 sm:px-8 md:px-16">
+      <div className="border-[#33353F] border rounded-md py-8 px-4 sm:px-8 md:px-16 flex flex-row flex-wrap items-center justify-between">
+        {Achievements.map((achievement, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center mx-4"
+            className="flex flex-col items-center justify-center mx-4 my-4 w-full sm:w-auto flex-1"
           >
-            <h2 className="text-white text-4xl font-bold flex flex-row">
-              <AnimatedNumbers 
+            <h2 className="text-white text-4xl font-bold flex flex-row items-center">
+              <AnimatedNumbers
                 includeComma
-                animateToNumber={parseInt(achievment.count)}
+                animateToNumber={parseInt(achievement.count)}
                 locale="en-US"
                 className="text-white text-4xl font-bold"
                 configs={(_, index) => {
@@ -53,9 +53,11 @@ const AchievementsSection = () => {
                   };
                 }}
               />
-              {achievment.postfix}
+              {achievement.postfix}
             </h2>
-            <p className="text-[#ADB7BE] text-base">{achievment.title}</p>
+            <p className="text-[#ADB7BE] text-base text-center md:text-left">
+              {achievement.title}
+            </p>
           </div>
         ))}
       </div>
